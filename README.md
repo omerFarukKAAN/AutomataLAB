@@ -1,2 +1,4 @@
 # AutomataLAB
-[CW2 - NFA, DFA and RegExp Example](https://omerfarukkaan.github.io/AutomataLAB/CW2)
+[CW2 - NFA, DFA and RegExp Example](./CW2.html)
+
+[CW3 - Regular Expressions](./CW3.html)
