@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Regular Expressions Homework</title>
+  <style>
+  /* pre { border: solid 1px } */
+    .foundArray { color: red; }
+    .foundString { color: blue; }
+  </style>
+</head>
+
+<body>
+<h2 id=title></h2>
+
+<textarea type = "text" id="text" rows="10" cols="50" onkeyup="checkRE()">
+    let longString = "This is a very long string which needs " +
+
+                 "to wrap across multiple lines because " +
+
+                 "otherwise my code is unreadable.";
+    
+    var vegetables = ['Cabbage', 'Turnip', 'Radish', 'Carrot'];
+    var fruits = ["Apple", "Banana", "Orange"];
+    var years = [1950, 1960, 1970, 1980, 1990, 2000, 2010];
+</textarea>
+
+<p id=out></p>
+
+<hr />
+<b>Sample code</b>
+<pre id=sample></pre>
+<hr />
+
+<script>
+"use strict";
+out.innerHTML = text.value;
+const arrayPattern = /\[.*?\]/;
+const stringPattern = /".*?"/;
+
+checkRE();
+
+function checkRE() {
+    var txt = text.value;
+    const exp = new RegExp(stringPattern,'g');
+    const str = "<span class=foundString>$&</span>";
+    let newOut = txt.replace(exp,str);
+    const exp1 = new RegExp(arrayPattern,'g');
+    const str1 = "<span class=foundArray>$&</span>";
+    out.innerHTML = newOut.replace(exp1, str1);
+}
+    sample.innerText = checkRE.toString();
+    title.innerText = document.title;
+</script>
+
+</body>
+</html>
