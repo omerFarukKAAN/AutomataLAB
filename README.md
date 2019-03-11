@@ -3,4 +3,4 @@
 
 [CW3 - Regular Expressions](./CW3.html)
 
-[HW1 - Regular Expressions Homework](.HW1.html)
+[HW1 - Regular Expressions Homework](./HW1.html)
