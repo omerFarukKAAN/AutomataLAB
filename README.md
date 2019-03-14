@@ -1,4 +1,4 @@
-**AutomataLAB**
+#AutomataLAB
 
 *CLASSWORKS*
 
