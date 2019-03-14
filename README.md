@@ -2,10 +2,10 @@
 
 ## *CLASSWORKS*
 
-[CW2 - NFA, DFA and RegExp Example](./CW2.html)
+[CW2 - NFA, DFA and RegExp Example](./Classworks/CW2.html)
 
-[CW3 - Regular Expressions](./CW3.html)
+[CW3 - Regular Expressions](./Classworks/CW3.html)
 
 ## *HOMEWORKS*
 
-[HW1 - Regular Expressions Homework](./HW1.html)
+[HW1 - Regular Expressions Homework](./Homeworks/HW1.html)
