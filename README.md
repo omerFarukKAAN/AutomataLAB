@@ -8,6 +8,8 @@
 
 [CW4 - Context Free Grammar](./Classworks/CW4.html)
 
+[CW5 - Expressions](./Classworks/CW5.html)
+
 ## *HOMEWORKS*
 
 [HW1 - Regular Expressions Homework](./Homeworks/HW1.html)
