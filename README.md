@@ -10,6 +10,8 @@
 
 [CW5 - Expressions](./Classworks/CW5/Expression.html)
 
+[CW6 - PDA](./Classworks/CW6.html)
+
 ## *HOMEWORKS*
 
 [HW1 - Regular Expressions Homework](./Homeworks/HW1.html)
