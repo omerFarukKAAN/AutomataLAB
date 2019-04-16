@@ -12,6 +12,8 @@
 
 [CW6 - PDA](./Classworks/CW6.html)
 
+[CW6 - microJ](./Classworks/CW7/microJ3.html)
+
 ## *HOMEWORKS*
 
 [HW1 - Regular Expressions Homework](./Homeworks/HW1.html)
