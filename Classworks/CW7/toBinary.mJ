@@ -1,0 +1,32 @@
+﻿mod(number, div){
+	while (number >= div){
+        	number = number - div;
+        }
+        return number;
+}
+divi(number, divisor){
+   var a;
+   a=0;
+   while (number >= divisor){
+      number = number - divisor;
+	   a = a + 1;        
+   }
+     return a;
+}
+
+toBinary(number){
+   var modNumber, div;
+   if (number > 0) {
+	   div = divi(number,2);
+	   toBinary(div);        
+	   modNumber = mod(number,2);
+	   print modNumber;
+   }
+}
+
+testToBinary(){
+   var a;
+   read a;
+   println "Decimal to Binary : ", a;
+   toBinary(a);
+}
