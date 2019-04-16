@@ -12,7 +12,7 @@
 
 [CW6 - PDA](./Classworks/CW6.html)
 
-[CW6 - microJ](./Classworks/CW7/microJ3.html)
+[CW7 - microJ](./Classworks/CW7/microJ3.html)
 
 ## *HOMEWORKS*
 
