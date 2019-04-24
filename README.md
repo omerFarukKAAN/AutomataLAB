@@ -19,3 +19,5 @@
 [HW1 - Regular Expressions Homework](./Homeworks/HW1.html)
 
 [HW2 - Context Free Grammar Homework](./Homeworks/HW2/Expression.html)
+
+[HW3 - microJ Homework](./Homeworks/HW3/microJ1.html)
