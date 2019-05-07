@@ -114,6 +114,7 @@
       w = <input id=input style="color:white ; background: #222" type=text value="100p001"
         onchange="generate(input.value)">
       <p></p>
+      <pre id="wrongInput" style="font-weight:bold; color:red; background: black"></pre>
       <pre id=out style="font-weight: bold; color: red; background: #222"></pre>
 
       <p></p>
@@ -126,7 +127,12 @@
 <script>
   function init(s) {
     var $ = go.GraphObject.make;  // for conciseness in defining templates
-    var myDiagram =
+    var projectDiagramDiv = document.getElementById("myDiagramDiv");
+    var projectDiagram = go.Diagram.fromDiv(projectDiagramDiv);
+    if (projectDiagram) {
+      projectDiagram.div = null;
+    }
+    myDiagram =
       $(go.Diagram, "myDiagramDiv",
         {
           allowCopy: false,
@@ -218,10 +224,11 @@
   }
   function generate(w, initState = 'S') {
     w.split('').forEach(element => {
+      var warning = document.getElementById("wrongInput");
       if (element != '0' & element != '1' & element != 'p') {
-        out.innerHTML = 'Wrong Input\nPlease use "0,1,p"\n'
+        warning.innerText = 'Wrong Input\nPlease use "0,1,p"\n'
         return
-      }
+      }else warning.innerText = '';
     });
     //w: input String
     //init: start symbol
