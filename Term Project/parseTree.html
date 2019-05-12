@@ -111,14 +111,31 @@
     </div>
 
     <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="tree">
-      <b>w</b> = <input id=input style="color:white ; background: #222" type=text value="100p001"
+      <b>w</b> = <input id=input style="color:white ; background: #222" type=text value="aa+aa=aaaa"
         onchange="generate(input.value)">
       <p></p>
       <pre id="wrongInput" style="font-weight:bold; color:red; background: black; border: black"></pre>
       <pre id=out style="font-weight: bold; color: red; background: #222; border: black"></pre>
 
       <p></p>
-      <em><b>Sample Grammar =</b> S → 0S0 | 1S1 | p</em>
+
+      <em>
+        <b>Sample Grammar</b>
+      </em>
+
+      <style>
+        #cfg {
+          margin: 10px 50px;
+          color: #777;
+          font-weight: bold;
+        }
+      </style>
+
+      <div id="cfg">
+        S → aSa | +aEa
+        <br>
+        E → aEa | =
+      </div>
       <hr>
       <h4><em>Parse Tree</em></h4>
     </div>
@@ -127,11 +144,6 @@
 <script>
   function init(s) {
     var $ = go.GraphObject.make;  // for conciseness in defining templates
-    var projectDiagramDiv = document.getElementById("myDiagramDiv");
-    var projectDiagram = go.Diagram.fromDiv(projectDiagramDiv);
-    if (projectDiagram) {
-      projectDiagram.div = null;
-    }
     myDiagram =
       $(go.Diagram, "myDiagramDiv",
         {
@@ -174,7 +186,7 @@
       parentCount = nextParentCount
       element.split('').forEach(word => {
         count++
-        if (word == 'S') {
+        if (word == 'S' || word == 'E') {
           nodeDataArray.push({ key: count, text: word, fill: "#f68c06", stroke: "#4d90fe", parent: parentCount })
           nextParentCount = count
         } else {
@@ -217,19 +229,20 @@
 
   "use strict";
   function delta(c, p) { // Unary addition
-    if (c == '0' && p == 'S') return "0S0";
-    if (c == '1' && p == 'S') return "1S1";
-    if (c == 'p') return "p";
+    if (c == 'a' && p == 'S') return "aSa";
+    if (c == '+' && p == 'S') return "+aEa";
+    if (c == 'a' && p == 'E') return "aEa";
+    if (c == '=' && p == 'E') return "=";
     return '';  //default -- no transition
   }
   function generate(w, initState = 'S') {
-    w.split('').forEach(element => {
-      var warning = document.getElementById("wrongInput");
-      if (element != '0' & element != '1' & element != 'p') {
-        warning.innerText = 'Wrong Input\nPlease use "0,1,p"\n'
-        return
-      }else warning.innerText = '';
-    });
+    var warning = document.getElementById("wrongInput");
+    for (let element of w.split('')) {
+      if (element != 'a' & element != '+' & element != '=') {
+        warning.innerText = 'Wrong Input\nPlease use "a,+,="\n'
+        break
+      } else warning.innerText = '';
+    }
     //w: input String
     //init: start symbol
     //g: generated String
@@ -247,8 +260,15 @@
       g = g.replace(p, d)
       steps.push(d)
     }
-    out.innerHTML = (w == g ? "Accept" : "Reject")
-    init(steps)
+    var projectDiagramDiv = document.getElementById("myDiagramDiv");
+    var projectDiagram = go.Diagram.fromDiv(projectDiagramDiv);
+    if (projectDiagram) {
+      projectDiagram.div = null;
+    }
+    if (w == g) {
+      out.innerHTML = "Accept";
+      init(steps);
+    } else out.innerHTML = "Reject";
   }
 </script>
 
@@ -272,13 +292,15 @@
       <h1 style="font-size: 30px; color: #777"><b>Reference</b></h1>
       <i class="fa fa-info w3-xxlarge" style="color: #777"></i>
       <p></p>
-      <a style="font-size: 20px; color: #777" href="https://gojs.net/latest/index.html" target="_blank" class="w3-hover-text-blue">GoJS | Interactive JavaScript Diagrams in HTML</a>
+      <a style="font-size: 20px; color: #777" href="https://gojs.net/latest/index.html" target="_blank"
+        class="w3-hover-text-blue">GoJS | Interactive JavaScript Diagrams in HTML</a>
     </div>
     <div class="col-sm-6" style="height: 200px;">
       <h1 style="font-size: 30px; color: #777"><b>Author</b></h1>
       <i class="fa fa-github w3-xxlarge" style="color:#777"></i>
       <p></p>
-      <a style="font-size: 20px; color: #777" href="https://github.com/omerFarukKAAN" target="_blank" class="w3-hover-text-blue">Ömer Faruk KAAN | GitHub</a>
+      <a style="font-size: 20px; color: #777" href="https://github.com/omerFarukKAAN" target="_blank"
+        class="w3-hover-text-blue">Ömer Faruk KAAN | GitHub</a>
     </div>
   </div>
 </body>
